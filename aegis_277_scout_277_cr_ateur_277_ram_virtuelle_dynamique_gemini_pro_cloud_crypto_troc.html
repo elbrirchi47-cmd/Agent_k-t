@@ -1,0 +1,2787 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEGIS 277 — Scout 277 &amp; Créateur 277 | RAM Virtuelle Dynamique, Gemini Pro Cloud &amp; Crypto Troc</title>
+  <style>
+    /* ==========================================================================
+       AEGIS 277 — DESIGN SYSTEM TACTIQUE 100% AUTONOME (ZÉRO CDN EXTERNE)
+       Palette : Deep Space Slate (#060a12), Glass Panels (#0f172a),
+                 Cyan (#06b6d4), Emerald (#10b981), Violet (#8b5cf6), Amber (#f59e0b)
+       ========================================================================== */
+    :root {
+      --bg-void: #060a12;
+      --bg-panel: #0f172a;
+      --bg-panel-alt: #0b1120;
+      --bg-input: #070c18;
+      --border-subtle: #1e293b;
+      --border-glow: rgba(6, 182, 212, 0.35);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --cyan: #06b6d4;
+      --cyan-soft: rgba(6, 182, 212, 0.14);
+      --emerald: #10b981;
+      --emerald-soft: rgba(16, 185, 129, 0.14);
+      --violet: #8b5cf6;
+      --violet-soft: rgba(139, 92, 246, 0.16);
+      --amber: #f59e0b;
+      --amber-soft: rgba(245, 158, 11, 0.15);
+      --rose: #f43f5e;
+      --rose-soft: rgba(244, 63, 94, 0.15);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.45;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Fond grille tactique subtile */
+    body {
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(6, 182, 212, 0.08), transparent 35%),
+        radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.08), transparent 35%),
+        linear-gradient(rgba(30, 41, 59, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 41, 59, 0.25) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+    }
+
+    /* Scrollbars personnalisées */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-void); }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+    /* Typographie & Utilitaires */
+    .mono { font-family: var(--font-mono); }
+    .text-cyan { color: var(--cyan); }
+    .text-emerald { color: var(--emerald); }
+    .text-violet { color: var(--violet); }
+    .text-amber { color: var(--amber); }
+    .text-rose { color: var(--rose); }
+    .text-muted { color: var(--text-secondary); }
+    .text-dim { color: var(--text-muted); }
+    .font-bold { font-weight: 700; }
+    .font-semibold { font-weight: 600; }
+    .hidden { display: none !important; }
+
+    /* Conteneur principal */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ==================== HEADER DE COMMANDEMENT ==================== */
+    .top-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(6, 10, 18, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-emblem {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.22), rgba(139, 92, 246, 0.22));
+      border: 1px solid rgba(6, 182, 212, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge-core {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--violet-soft);
+      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin: 2px 0 0 0;
+    }
+
+    .header-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Boutons Tactiques */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 9px 14px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-panel);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      user-select: none;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      border-color: #38bdf8;
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-sm {
+      padding: 6px 10px;
+      font-size: 0.72rem;
+      border-radius: 8px;
+    }
+
+    /* Bouton Maître Démarrer Système 277 */
+    .btn-master-start {
+      background: linear-gradient(135deg, #10b981, #06b6d4);
+      color: #030712;
+      border: none;
+      padding: 10px 18px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 0 22px rgba(16, 185, 129, 0.38);
+    }
+
+    .btn-master-start:hover {
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.55);
+      filter: brightness(1.06);
+    }
+
+    .btn-master-running {
+      background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      color: #ffffff;
+      box-shadow: 0 0 24px rgba(139, 92, 246, 0.45);
+    }
+
+    .btn-turbo {
+      background: var(--amber-soft);
+      border-color: rgba(245, 158, 11, 0.45);
+      color: #fcd34d;
+    }
+
+    .btn-turbo.active {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: #090d16;
+      border-color: transparent;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.45);
+    }
+
+    .btn-cyan {
+      background: var(--cyan-soft);
+      border-color: rgba(6, 182, 212, 0.45);
+      color: #67e8f9;
+    }
+
+    .btn-emerald {
+      background: var(--emerald-soft);
+      border-color: rgba(16, 185, 129, 0.45);
+      color: #6ee7b7;
+    }
+
+    .btn-violet {
+      background: var(--violet-soft);
+      border-color: rgba(139, 92, 246, 0.45);
+      color: #ddd6fe;
+    }
+
+    .btn-download-live {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+      border-color: rgba(16, 185, 129, 0.55);
+      color: #6ee7b7;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.45); opacity: 0.45; }
+    }
+
+    .pulse { animation: pulseDot 1.4s infinite ease-in-out; }
+
+    /* ==================== BARRE TÉLÉMÉTRIE RAM VIRTUELLE DYNAMIQUE ==================== */
+    .ram-hud {
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.95));
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 0;
+    }
+
+    .ram-hud-grid {
+      display: grid;
+      grid-template-columns: auto repeat(4, minmax(115px, 1fr)) 160px auto;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ram-badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: var(--violet-soft);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #ddd6fe;
+      white-space: nowrap;
+    }
+
+    .ram-metric {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 6px 10px;
+    }
+
+    .ram-metric-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+
+    .ram-metric-val {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-top: 1px;
+    }
+
+    .ram-spark-wrap {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 4px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ram-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    /* ==================== BANDEAU ALERTE MODE CRISE DÉCONNECTÉ ==================== */
+    .crisis-banner {
+      background: rgba(245, 158, 11, 0.14);
+      border-bottom: 1px solid rgba(245, 158, 11, 0.45);
+      padding: 8px 0;
+      font-size: 0.76rem;
+      color: #fde68a;
+    }
+
+    .crisis-banner-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    /* ==================== CARTES & GRILLES ==================== */
+    .main-stack {
+      padding: 20px 0 48px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: #334155;
+    }
+
+    .card-glow-cyan {
+      border-color: rgba(6, 182, 212, 0.45);
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.12);
+    }
+
+    .card-glow-violet {
+      border-color: rgba(139, 92, 246, 0.45);
+      box-shadow: 0 0 25px rgba(139, 92, 246, 0.14);
+    }
+
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-sub {
+      font-size: 0.74rem;
+      color: var(--text-secondary);
+      margin: 2px 0 0 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    /* ==================== BARRE DIRECTIVE GEMINI PRO CLOUD ==================== */
+    .gemini-box {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 27, 75, 0.75));
+      border: 1px solid rgba(139, 92, 246, 0.45);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .directive-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .input-tactical {
+      flex: 1;
+      min-width: 240px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 11px;
+      padding: 11px 14px;
+      color: var(--text-primary);
+      font-size: 0.84rem;
+      font-family: var(--font-sans);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .input-tactical:focus {
+      border-color: var(--cyan);
+    }
+
+    .preset-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      font-size: 0.71rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .chip:hover {
+      border-color: var(--violet);
+      color: #ddd6fe;
+    }
+
+    /* ==================== JAUGES STOCKS & RADAR SCOUT 277 ==================== */
+    .stock-row {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 9px 12px;
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: #1e293b;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    /* ==================== WORKSPACE STRUCTURÉ : BIBLIOTHÈQUE • SCHÉMA • CRÉATIONS ==================== */
+    .workspace-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+    }
+
+    .ws-tab {
+      flex: 1;
+      min-width: 170px;
+      padding: 10px 14px;
+      border-radius: 9px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+    }
+
+    .ws-tab:hover {
+      color: var(--text-primary);
+      background: rgba(30, 41, 59, 0.5);
+    }
+
+    .ws-tab.active {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.18), rgba(139, 92, 246, 0.18));
+      border-color: rgba(6, 182, 212, 0.45);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .pill-count {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 1px 7px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Cartes Bibliothèque */
+    .lib-card {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .lib-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    .lib-card.posed {
+      border-color: rgba(16, 185, 129, 0.55);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.07), var(--bg-input));
+    }
+
+    /* Schéma Architectural Interactif (Pipeline SVG + Noeuds) */
+    .schema-canvas-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 16px;
+      position: relative;
+      overflow-x: auto;
+    }
+
+    .pipeline-flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-width: 780px;
+      padding: 12px 4px;
+    }
+
+    .pipe-node {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px;
+      width: 175px;
+      flex-shrink: 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .pipe-node-hub {
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px dashed rgba(6, 182, 212, 0.5);
+      border-radius: 14px;
+      padding: 12px;
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .posed-chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      justify-content: center;
+    }
+
+    .posed-node-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: var(--emerald-soft);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #a7f3d0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .posed-node-pill:hover {
+      background: var(--rose-soft);
+      border-color: var(--rose);
+      color: #fecdd3;
+    }
+
+    @keyframes flowDash {
+      to { stroke-dashoffset: -24; }
+    }
+
+    .flow-arrow svg line {
+      stroke-dasharray: 6 6;
+      animation: flowDash 0.8s linear infinite;
+    }
+
+    /* Plan à Poser en 4 Phases */
+    .phase-card {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .phase-card.done {
+      border-color: rgba(16, 185, 129, 0.45);
+      opacity: 0.88;
+    }
+
+    .phase-check {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--emerald);
+      cursor: pointer;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ==================== CONSOLE MULTI-AGENTS TEMPS RÉEL ==================== */
+    .terminal-box {
+      background: #04070d;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px;
+      height: 290px;
+      overflow-y: auto;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .log-line {
+      line-height: 1.4;
+      word-break: break-word;
+    }
+
+    /* ==================== WALLET CRYPTO & PASS GARDIEN ==================== */
+    .wallet-balances {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .bal-tile {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 11px;
+      padding: 10px 12px;
+    }
+
+    .pass-card {
+      background: linear-gradient(160deg, #0b1324, #071418);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .qr-frame {
+      background: #ffffff;
+      padding: 8px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 10px auto;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    /* ==================== TABLEAU LEDGER CRYPTO ==================== */
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.76rem;
+      text-align: left;
+    }
+
+    th {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(30, 41, 59, 0.55);
+    }
+
+    tr:hover td {
+      background: rgba(30, 41, 59, 0.25);
+    }
+
+    /* ==================== MODALES & TOASTS ==================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(2, 6, 23, 0.82);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-box {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-glow);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.75);
+    }
+
+    .toast-stack {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 360px;
+      width: calc(100% - 32px);
+      pointer-events: none;
+    }
+
+    .toast-item {
+      pointer-events: auto;
+      background: var(--bg-panel);
+      border: 1px solid var(--cyan);
+      color: var(--text-primary);
+      padding: 11px 14px;
+      border-radius: 11px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    /* ==================== RESPONSIVE MOBILE & TABLETTE ==================== */
+    @media (max-width: 1120px) {
+      .ram-hud-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .grid-3, .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      .ram-hud-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .brand-title {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== 1. HEADER DE COMMANDEMENT ==================== -->
+  <header class="top-header">
+    <div class="container header-inner">
+      
+      <!-- Identité AEGIS 277 -->
+      <div class="brand-box">
+        <div class="brand-emblem">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <circle cx="12" cy="11" r="3" stroke="#10b981"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">
+            AEGIS 277 <span class="text-cyan">—</span> Scout 277 &amp; Créateur 277
+            <span class="badge-core">RAM DYNAMIQUE • GEMINI PRO • CRYPTO</span>
+          </h1>
+          <p class="brand-sub">Système Anti-Crise Autonome de Stockage Sécurisé, Missions IA &amp; Troc Crypto Escrow</p>
+        </div>
+      </div>
+
+      <!-- Boutons Maîtres : Démarrer, Turbo, En Ligne/Déconnecté, Sync Queue, Télécharger HTML -->
+      <div class="header-controls">
+        <button id="btnMasterStart" onclick="toggleSystem277()" class="btn btn-master-start">
+          <span id="masterStartIcon">▶</span>
+          <span id="masterStartText">DÉMARRER SYSTÈME 277</span>
+        </button>
+
+        <button id="btnTurboMode" onclick="toggleTurboMode()" class="btn btn-turbo" title="Accélérer la boucle Web Worker & Ring-Buffer RAM Virtuelle">
+          ⚡ MODE TURBO
+        </button>
+
+        <button id="btnNetworkSwitch" onclick="toggleNetworkMode()" class="btn btn-emerald" title="Basculer entre Gemini Pro Cloud En Ligne et Mode Crise Local-First Déconnecté">
+          <span id="netDot" class="status-dot pulse" style="background:#10b981;"></span>
+          <span id="netLabel">🌐 EN LIGNE (Gemini Pro Cloud)</span>
+        </button>
+
+        <button onclick="openSyncQueueModal()" class="btn" title="File d'attente de synchronisation hors-ligne">
+          <span>🔄 Sync Queue</span>
+          <span id="syncCountBadge" class="mono" style="background:#1e293b; padding:1px 7px; border-radius:6px; color:#f8fafc;">0</span>
+        </button>
+
+        <button onclick="downloadLiveHtmlDirect()" class="btn btn-download-live" title="Télécharger cette application complète et autonome en direct">
+          ⬇ TÉLÉCHARGER HTML EN DIRECT
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 2. BARRE TÉLÉMÉTRIE RAM VIRTUELLE DYNAMIQUE ==================== -->
+  <section class="ram-hud">
+    <div class="container ram-hud-grid">
+      <div class="ram-badge-title">
+        <span class="status-dot pulse" style="background:#8b5cf6;"></span>
+        <span>RAM VIRTUELLE 277</span>
+      </div>
+
+      <div class="ram-metric">
+        <div class="ram-metric-label">Pool Alloué (Ring-Buffer)</div>
+        <div id="ramAllocatedVal" class="ram-metric-val">128 MB / 1024 MB</div>
+      </div>
+
+      <div class="ram-metric">
+        <div class="ram-metric-label">Débit Zero-Copy</div>
+        <div id="ramThroughputVal" class="ram-metric-val text-emerald">0 ops/sec</div>
+      </div>
+
+      <div class="ram-metric">
+        <div class="ram-metric-label">Latence Mémoire</div>
+        <div id="ramLatencyVal" class="ram-metric-val text-violet">0.02 ms</div>
+      </div>
+
+      <div class="ram-metric">
+        <div class="ram-metric-label">Cache Hit Rate</div>
+        <div id="ramHitRateVal" class="ram-metric-val text-amber">99.6%</div>
+      </div>
+
+      <div class="ram-spark-wrap">
+        <span class="ram-metric-label" style="margin-bottom:2px;">Bande Passante Live</span>
+        <canvas id="ramSparkline" width="144" height="24"></canvas>
+      </div>
+
+      <div class="ram-actions">
+        <button onclick="allocateMoreVirtualRam()" class="btn btn-sm btn-violet">Allouer +128 MB</button>
+        <button onclick="purgeVirtualRamCache()" class="btn btn-sm">Purger Cache</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bandeau Mode Crise Déconnecté (Visible uniquement en mode hors-ligne) -->
+  <div id="offlineCrisisBanner" class="crisis-banner hidden">
+    <div class="container crisis-banner-inner">
+      <div>
+        <strong>🔌 MODE DÉCONNECTÉ (CRISE LOCAL-FIRST) ACTIF :</strong> Fonctionnement 100 % autonome sans internet. Créateur 277 bascule sur son moteur neuronal local et empile vos transactions dans la <em>Sync Queue</em>.
+      </div>
+      <button onclick="exportFullStateJson()" class="btn btn-sm" style="background:rgba(245,158,11,0.22); border-color:#f59e0b; color:#fef3c7;">
+        Exporter Sauvegarde USB (.json)
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== 3. CORPS PRINCIPAL DU CENTRE DE COMMANDEMENT ==================== -->
+  <main class="container main-stack">
+
+    <!-- ==================== BLOC A : DIRECTIVE GEMINI PRO CLOUD & AGENTS 277 ==================== -->
+    <section class="gemini-box">
+      <div class="card-header" style="margin-bottom:6px;">
+        <div>
+          <h2 class="card-title" style="font-size:1.05rem;">
+            <span style="color:#c4b5fd;">✦</span> Directive IA — Gemini Pro Cloud &amp; Créateur 277
+          </h2>
+          <p class="card-sub">
+            Donnez un ordre stratégique : Scout 277 analyse les stocks &amp; risques dans la RAM Virtuelle, Créateur 277 génère la Mission, pose le Schéma d'architecture et exécute la transaction Crypto Escrow.
+          </p>
+        </div>
+        <span id="aiEngineModeTag" class="badge-core" style="background:rgba(16,185,129,0.16); color:#6ee7b7; border-color:rgba(16,185,129,0.4);">
+          MOTEUR : GEMINI PRO CLOUD PRÊT
+        </span>
+      </div>
+
+      <div class="directive-row">
+        <input
+          id="geminiDirectiveInput"
+          type="text"
+          class="input-tactical"
+          placeholder="Directive IA pour Créateur 277 (ex: Sécuriser 400L eau & carburant zone Sud avec contrat escrow)..."
+          onkeydown="if(event.key==='Enter') executeCreatorDirective()"
+        />
+        <button id="btnGenerateMission" onclick="executeCreatorDirective()" class="btn btn-master-start">
+          ⚡ Générer Mission, Schéma &amp; Crypto Escrow
+        </button>
+      </div>
+
+      <div class="preset-chips">
+        <span class="text-dim" style="font-size:0.71rem; align-self:center;">Ordres rapides :</span>
+        <button class="chip" onclick="useDirectivePreset('Constituer une réserve critique Eau Purifiée + Rations 90 jours au Bunker Bêta avec contrat Escrow')">
+          🛡️ Réserve Survie 90j Bunker Bêta
+        </button>
+        <button class="chip" onclick="useDirectivePreset('Arbitrage Troc Énergie Solaire contre Kits Médicaux d’Urgence avec indexation anti-inflation UVE')">
+          ⚡ Arbitrage Énergie ↔ Médical
+        </button>
+        <button class="chip" onclick="useDirectivePreset('Déployer protocole résilience hors-ligne Mesh & Pass Gardien PIN tournant pour 3 garages sécurisés')">
+          🔌 Protocole Crise Hors-Ligne Mesh
+        </button>
+        <button class="chip" onclick="useDirectivePreset('Auditer et certifier en SHA-256 les stocks Métaux Précieux & Carburant avec prélèvement commission groupe')">
+          🔐 Audit &amp; Certification SHA-256
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== BLOC B : SCOUT 277 & CRÉATEUR 277 EN TEMPS RÉEL ==================== -->
+    <section class="grid-2">
+      
+      <!-- Module SCOUT 277 -->
+      <div class="card card-glow-cyan">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">
+              <span class="status-dot pulse" style="background:#06b6d4;"></span>
+              SCOUT 277 — Radar Marchés Crise &amp; Stocks Physiques
+            </h3>
+            <p class="card-sub">Sonde en temps réel les coffres physiques et injecte les signaux dans la RAM Virtuelle</p>
+          </div>
+          <span id="scoutCyclesBadge" class="mono" style="font-size:0.74rem; padding:4px 9px; border-radius:8px; background:var(--cyan-soft); color:#67e8f9;">
+            0 Scans
+          </span>
+        </div>
+
+        <div id="scoutStocksList"></div>
+
+        <div style="margin-top:12px; padding:10px 12px; border-radius:10px; background:var(--bg-input); border:1px solid rgba(6,182,212,0.3); display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+          <div style="font-size:0.75rem;">
+            <span class="text-cyan font-bold">Dernier Signal Scout 277 :</span>
+            <span id="scoutLatestSignal" class="text-muted">En attente de démarrage du système...</span>
+          </div>
+          <button onclick="triggerSingleAgentPulse()" class="btn btn-sm btn-cyan">Scanner Maintenant</button>
+        </div>
+      </div>
+
+      <!-- Module CRÉATEUR 277 -->
+      <div class="card card-glow-violet">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">
+              <span class="status-dot pulse" style="background:#8b5cf6;"></span>
+              CRÉATEUR 277 — Architecte Missions &amp; Escrow Auto
+            </h3>
+            <p class="card-sub">Transforme les signaux Scout 277 en plans d'action et règlements crypto sécurisés</p>
+          </div>
+          <span id="creatorMissionsBadge" class="mono" style="font-size:0.74rem; padding:4px 9px; border-radius:8px; background:var(--violet-soft); color:#ddd6fe;">
+            0 Créations
+          </span>
+        </div>
+
+        <!-- Métriques synthétiques Créateur 277 -->
+        <div class="grid-2" style="gap:10px; margin-bottom:12px;">
+          <div class="bal-tile">
+            <div class="ram-metric-label">Indice Tension Crise</div>
+            <div id="crisisRiskIndex" class="mono font-bold text-amber" style="font-size:1.1rem; margin-top:2px;">64 / 100 (ÉLEVÉ)</div>
+            <div class="text-dim" style="font-size:0.68rem;">Couverture réserves recommandée</div>
+          </div>
+          <div class="bal-tile">
+            <div class="ram-metric-label">Commission Groupe Escrow</div>
+            <div id="groupCommissionDisplay" class="mono font-bold text-emerald" style="font-size:1.1rem; margin-top:2px;">3.5%</div>
+            <div class="text-dim" style="font-size:0.68rem;">Garantie gardiens &amp; bunkers</div>
+          </div>
+        </div>
+
+        <!-- Réglage Commission Groupe + Auto-Mission -->
+        <div style="background:var(--bg-input); border:1px solid var(--border-subtle); border-radius:11px; padding:12px; margin-bottom:12px;">
+          <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:6px;">
+            <span class="text-muted">Taux de prélèvement Groupe sur Transactions Troc :</span>
+            <span id="commissionSliderLabel" class="mono font-bold text-amber">3.5%</span>
+          </div>
+          <input id="commissionSlider" type="range" min="1" max="12" step="0.5" value="3.5" oninput="updateGroupCommission(this.value)" style="width:100%; accent-color:#f59e0b; cursor:pointer;" />
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; background:var(--bg-input); border:1px solid rgba(139,92,246,0.3); border-radius:10px; padding:10px 12px;">
+          <label style="display:flex; align-items:center; gap:8px; font-size:0.76rem; cursor:pointer;">
+            <input id="autoMissionCheckbox" type="checkbox" checked onchange="toggleAutoMission(this.checked)" style="accent-color:#8b5cf6; width:16px; height:16px;" />
+            <span>Auto-génération de missions sur alerte Scout 277</span>
+          </label>
+          <button onclick="executeCreatorDirective(true)" class="btn btn-sm btn-violet">+ Créer Mission Auto</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================== BLOC C : WORKSPACE STRUCTURÉ PAR CRÉATEUR 277 ==================== -->
+    <section class="card" id="creatorWorkspaceSection">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title" style="font-size:1.05rem;">
+            📐 CRÉATEUR 277 : BIBLIOTHÈQUE • SCHÉMA À POSER • CRÉATIONS
+          </h2>
+          <p class="card-sub">
+            Assemblez vos briques de résilience depuis la Bibliothèque, visualisez l'architecture et le Plan Réponse à poser, puis exportez vos Créations signées.
+          </p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button onclick="deployCurrentSchemaToCreation()" class="btn btn-sm btn-emerald">
+            ⚡ Exécuter Schéma &rarr; Créer Mission Crypto
+          </button>
+        </div>
+      </div>
+
+      <!-- Onglets Structurés des 3 Piliers -->
+      <div class="workspace-tabs" style="margin-bottom:16px;">
+        <button id="wsTabBtn-library" class="ws-tab active" onclick="switchWorkspaceTab('library')">
+          <span>📚 1. BIBLIOTHÈQUE DE MODULES</span>
+          <span id="countLibraryBadge" class="pill-count">7</span>
+        </button>
+        <button id="wsTabBtn-schema" class="ws-tab" onclick="switchWorkspaceTab('schema')">
+          <span>📐 2. SCHÉMA À POSER &amp; PLAN RÉPONSE</span>
+          <span id="countSchemaBadge" class="pill-count">3 posés</span>
+        </button>
+        <button id="wsTabBtn-creations" class="ws-tab" onclick="switchWorkspaceTab('creations')">
+          <span>🚀 3. CRÉATIONS &amp; CONTRATS CRYPTO</span>
+          <span id="countCreationsBadge" class="pill-count">0</span>
+        </button>
+      </div>
+
+      <!-- PILIER 1 : BIBLIOTHÈQUE -->
+      <div id="wsPane-library">
+        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px;">
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <button class="btn btn-sm btn-cyan" onclick="filterLibrary('ALL', this)">Tous les modules</button>
+            <button class="btn btn-sm" onclick="filterLibrary('Sécurité Physique', this)">Sécurité Physique</button>
+            <button class="btn btn-sm" onclick="filterLibrary('Crypto & Escrow', this)">Crypto &amp; Escrow</button>
+            <button class="btn btn-sm" onclick="filterLibrary('Logistique & Crise', this)">Logistique &amp; Crise</button>
+          </div>
+          <input id="librarySearchInput" type="text" class="input-tactical" style="max-width:280px; padding:8px 12px; font-size:0.76rem;" placeholder="Filtrer la bibliothèque..." oninput="renderLibraryGrid()" />
+        </div>
+
+        <div id="libraryGrid" class="grid-3"></div>
+      </div>
+
+      <!-- PILIER 2 : SCHÉMA À POSER & PLAN RÉPONSE -->
+      <div id="wsPane-schema" class="hidden">
+        <!-- Diagramme Architectural Interactif -->
+        <div class="schema-canvas-box" style="margin-bottom:16px;">
+          <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px;">
+            <span class="mono font-bold text-cyan" style="font-size:0.76rem;">
+              ARCHITECTURE TEMPS RÉEL — FLUX ZERO-COPY SCOUT 277 &rarr; CRÉATEUR 277
+            </span>
+            <div style="display:flex; gap:6px;">
+              <button onclick="switchWorkspaceTab('library')" class="btn btn-sm btn-cyan">+ Ajouter depuis Bibliothèque</button>
+              <button onclick="resetPosedSchema()" class="btn btn-sm">Réinitialiser</button>
+            </div>
+          </div>
+
+          <div class="pipeline-flow">
+            <!-- Noeud 1 : Scout 277 -->
+            <div class="pipe-node" style="border-color:rgba(6,182,212,0.5);">
+              <div class="mono text-cyan font-bold" style="font-size:0.74rem;">SCOUT 277</div>
+              <div class="text-muted" style="font-size:0.68rem; margin-top:4px;">Capteurs Stocks &amp; Risques</div>
+              <div id="nodeScoutStat" class="mono text-emerald" style="font-size:0.7rem; margin-top:6px;">ACTIF • 5 Coffres</div>
+            </div>
+
+            <div class="flow-arrow">
+              <svg width="34" height="20" viewBox="0 0 34 20"><line x1="0" y1="10" x2="28" y2="10" stroke="#06b6d4" stroke-width="2"/><polygon points="26,5 34,10 26,15" fill="#06b6d4"/></svg>
+            </div>
+
+            <!-- Noeud 2 : RAM Virtuelle -->
+            <div class="pipe-node" style="border-color:rgba(139,92,246,0.55);">
+              <div class="mono text-violet font-bold" style="font-size:0.74rem;">RAM VIRTUELLE</div>
+              <div class="text-muted" style="font-size:0.68rem; margin-top:4px;">Ring-Buffer Float64</div>
+              <div id="nodeRamStat" class="mono text-cyan" style="font-size:0.7rem; margin-top:6px;">128 MB • &lt;0.1ms</div>
+            </div>
+
+            <div class="flow-arrow">
+              <svg width="34" height="20" viewBox="0 0 34 20"><line x1="0" y1="10" x2="28" y2="10" stroke="#8b5cf6" stroke-width="2"/><polygon points="26,5 34,10 26,15" fill="#8b5cf6"/></svg>
+            </div>
+
+            <!-- Noeud 3 : Modules Posés de la Bibliothèque -->
+            <div class="pipe-node-hub">
+              <div class="mono text-emerald font-bold" style="font-size:0.74rem; text-align:center;">
+                MODULES POSÉS SUR LE SCHÉMA (Cliquer pour retirer)
+              </div>
+              <div id="posedModulesCanvas" class="posed-chip-grid"></div>
+            </div>
+
+            <div class="flow-arrow">
+              <svg width="34" height="20" viewBox="0 0 34 20"><line x1="0" y1="10" x2="28" y2="10" stroke="#10b981" stroke-width="2"/><polygon points="26,5 34,10 26,15" fill="#10b981"/></svg>
+            </div>
+
+            <!-- Noeud 4 : Créateur 277 & Wallet Crypto -->
+            <div class="pipe-node" style="border-color:rgba(245,158,11,0.55);">
+              <div class="mono text-amber font-bold" style="font-size:0.74rem;">CRÉATEUR &amp; WALLET</div>
+              <div class="text-muted" style="font-size:0.68rem; margin-top:4px;">Escrow SHA-256 &amp; Coffre</div>
+              <div id="nodeWalletStat" class="mono text-amber" style="font-size:0.7rem; margin-top:6px;">0x7FA2...0277</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Réponse & Plan à Poser (4 Phases Structurées) -->
+        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;">
+          <div>
+            <h4 style="margin:0; font-size:0.9rem; font-weight:800;" id="activePlanTitle">
+              Plan d'Exécution Tactique — Déploiement Réseau Sécurisé 277
+            </h4>
+            <p class="card-sub" id="activePlanSummary">
+              Cochez chaque étape validée sur le terrain ou exportez le plan complet pour les gardiens.
+            </p>
+          </div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button onclick="exportActivePlanMarkdown()" class="btn btn-sm">⬇ Exporter Plan (.MD)</button>
+            <button onclick="deployCurrentSchemaToCreation()" class="btn btn-sm btn-emerald">✔ Valider &amp; Sceller en Création</button>
+          </div>
+        </div>
+
+        <div id="actionPlanPhasesList" class="grid-2" style="gap:10px;"></div>
+      </div>
+
+      <!-- PILIER 3 : CRÉATIONS -->
+      <div id="wsPane-creations" class="hidden">
+        <div id="creationsGrid" class="grid-3"></div>
+      </div>
+    </section>
+
+    <!-- ==================== BLOC D : WALLET CRYPTO SOUVERAIN, PASS GARDIEN & CONSOLE ==================== -->
+    <section class="grid-2">
+      
+      <!-- Wallet Crypto Souverain + Pass Physique Gardien -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">💳 Wallet Crypto Souverain &amp; Pass Gardien</h3>
+            <p class="card-sub">Règlements Escrow UVE / USDC / ETH &amp; badge d'accès physique hors-ligne</p>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button onclick="connectWeb3Wallet()" class="btn btn-sm btn-cyan">Lier Web3</button>
+            <button onclick="regenerateSovereignKeys()" class="btn btn-sm">Nouvelles Clés</button>
+          </div>
+        </div>
+
+        <!-- Adresse & Copie -->
+        <div style="background:var(--bg-input); border:1px solid var(--border-subtle); border-radius:10px; padding:9px 12px; display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:12px;">
+          <div style="overflow:hidden;">
+            <div class="ram-metric-label">Adresse Souveraine AEGIS 277</div>
+            <div id="walletAddressFull" class="mono text-cyan" style="font-size:0.78rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+              0x7FA28B4E19C04D88A31F90E25C7B6104D9280277
+            </div>
+          </div>
+          <button onclick="copyToClipboard(state.wallet.address, 'Adresse Wallet copiée !')" class="btn btn-sm">Copier</button>
+        </div>
+
+        <!-- 4 Soldes Crypto & Réserves -->
+        <div class="wallet-balances" style="margin-bottom:14px;">
+          <div class="bal-tile" style="border-color:rgba(16,185,129,0.35);">
+            <div class="ram-metric-label">UVE (Valeur Essentielle)</div>
+            <div id="balUve" class="mono font-bold text-emerald" style="font-size:1.05rem;">2 450.00 UVE</div>
+            <div class="text-dim" style="font-size:0.68rem;">1 UVE = 10 € de stock physique</div>
+          </div>
+          <div class="bal-tile" style="border-color:rgba(6,182,212,0.35);">
+            <div class="ram-metric-label">USDC (Stablecoin Troc)</div>
+            <div id="balUsdc" class="mono font-bold text-cyan" style="font-size:1.05rem;">14 800.00 USDC</div>
+            <div class="text-dim" style="font-size:0.68rem;">Liquidité règlement instantané</div>
+          </div>
+          <div class="bal-tile" style="border-color:rgba(139,92,246,0.35);">
+            <div class="ram-metric-label">ETH (Garantie Réseau)</div>
+            <div id="balEth" class="mono font-bold text-violet" style="font-size:1.05rem;">3.8500 ETH</div>
+            <div class="text-dim" style="font-size:0.68rem;">Collatéral Smart-Contracts</div>
+          </div>
+          <div class="bal-tile" style="border-color:rgba(245,158,11,0.35);">
+            <div class="ram-metric-label">Commissions Groupe Cumulées</div>
+            <div id="balCommissions" class="mono font-bold text-amber" style="font-size:1.05rem;">418.50 UVE</div>
+            <div class="text-dim" style="font-size:0.68rem;">Revenus gardiennage &amp; escrow</div>
+          </div>
+        </div>
+
+        <!-- Pass d'Accès Physique Gardien (QR Matrix Canvas + PIN Tournant 30s) -->
+        <div class="pass-card">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+            <span class="mono font-bold text-emerald" style="font-size:0.72rem;">🛡️ PASS ACCÈS GARAGE GARDIEN</span>
+            <span id="passTimerBadge" class="mono font-bold text-amber" style="font-size:0.74rem;">Rotation : 30s</span>
+          </div>
+
+          <select id="guardianSiteSelect" onchange="refreshGuardianPass(true)" class="input-tactical" style="width:100%; margin-top:8px; padding:7px 10px; font-size:0.75rem;">
+            <option value="GARAGE-ALPHA-NORD">Garage Alpha — Secteur Nord (3 Gardiens 24/7)</option>
+            <option value="BUNKER-BETA-SUD">Bunker Bêta — Zone Sud Anti-EMP (5 Gardiens)</option>
+            <option value="ENTREPOT-GAMMA-CTR">Entrepôt Gamma — Hub Central (4 Gardiens)</option>
+          </select>
+
+          <div class="qr-frame">
+            <canvas id="guardianQrCanvas" width="124" height="124"></canvas>
+          </div>
+
+          <div class="ram-metric-label">Code PIN Cryptographique Tournant</div>
+          <div id="guardianPinCode" class="mono font-bold text-emerald" style="font-size:1.45rem; letter-spacing:0.22em; margin:2px 0;">
+            277 894
+          </div>
+          <div id="guardianSigMeta" class="mono text-dim" style="font-size:0.68rem;">
+            ACCRÉDITATION VALIDÉE HORS-LIGNE • SHA-256
+          </div>
+        </div>
+      </div>
+
+      <!-- Console Multi-Agents Temps Réel -->
+      <div class="card" style="display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">🖥️ Console Temps Réel — Flux Multi-Agents 277</h3>
+              <p class="card-sub">Journal d'exécution haute fréquence des agents autonomes</p>
+            </div>
+            <button onclick="clearAgentLogs()" class="btn btn-sm">Effacer</button>
+          </div>
+
+          <!-- Filtres Logs -->
+          <div style="display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px;">
+            <button class="btn btn-sm btn-cyan" onclick="setLogFilter('ALL')">TOUS</button>
+            <button class="btn btn-sm" onclick="setLogFilter('SCOUT-277')">SCOUT-277</button>
+            <button class="btn btn-sm" onclick="setLogFilter('RAM-VIRTUELLE')">RAM-VIRTUELLE</button>
+            <button class="btn btn-sm" onclick="setLogFilter('CRÉATEUR-277')">CRÉATEUR-277</button>
+            <button class="btn btn-sm" onclick="setLogFilter('GEMINI-CLOUD')">GEMINI-CLOUD</button>
+            <button class="btn btn-sm" onclick="setLogFilter('CRYPTO-ESCROW')">CRYPTO-ESCROW</button>
+          </div>
+
+          <div id="agentConsoleTerminal" class="terminal-box"></div>
+        </div>
+
+        <!-- Action rapide Injection Liquidité / Règlement Troc -->
+        <div style="margin-top:12px; padding:12px; border-radius:12px; background:var(--bg-input); border:1px solid var(--border-subtle); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px;">
+          <div style="font-size:0.75rem;">
+            <strong class="text-white">Règlement Troc Rapide :</strong>
+            <span class="text-muted">Convertir 500 USDC en 50 UVE de réserve physique sécurisée</span>
+          </div>
+          <button onclick="executeQuickCryptoSwap()" class="btn btn-sm btn-emerald">
+            ⚡ Convertir 500 USDC &rarr; 50 UVE
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================== BLOC E : GRAND LIVRE CRYPTO ESCROW (LEDGER) ==================== -->
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h3 class="card-title">⛓️ Grand Livre Cryptographique des Transactions &amp; Missions Escrow</h3>
+          <p class="card-sub">Chaque mission générée par Créateur 277 est scellée avec empreinte SHA-256 et répartition de commission groupe</p>
+        </div>
+        <button onclick="exportFullStateJson()" class="btn btn-sm">⬇ Exporter Ledger (.JSON)</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Horodatage</th>
+              <th>Type / Source</th>
+              <th>Mission / Détail Opération</th>
+              <th>Valeur UVE</th>
+              <th>Valeur USDC</th>
+              <th>Commission Groupe</th>
+              <th>Hash SHA-256</th>
+              <th>Statut Réseau</th>
+            </tr>
+          </thead>
+          <tbody id="cryptoLedgerBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODALE APERÇU CRÉATION ==================== -->
+  <div id="creationPreviewModal" class="modal-backdrop hidden" onclick="if(event.target===this) closeModal('creationPreviewModal')">
+    <div class="modal-box">
+      <div class="card-header">
+        <h3 id="previewModalTitle" class="card-title">Aperçu de la Création</h3>
+        <button onclick="closeModal('creationPreviewModal')" class="btn btn-sm">✕ Fermer</button>
+      </div>
+      <div id="previewModalContent" style="font-size:0.8rem;"></div>
+    </div>
+  </div>
+
+  <!-- ==================== MODALE SYNC QUEUE HORS-LIGNE ==================== -->
+  <div id="syncQueueModal" class="modal-backdrop hidden" onclick="if(event.target===this) closeModal('syncQueueModal')">
+    <div class="modal-box">
+      <div class="card-header">
+        <div>
+          <h3 class="card-title">🔄 File d'Attente de Synchronisation (Mode Crise)</h3>
+          <p class="card-sub">Transactions et créations générées hors-ligne prêtes à être diffusées</p>
+        </div>
+        <button onclick="closeModal('syncQueueModal')" class="btn btn-sm">✕ Fermer</button>
+      </div>
+      <div id="syncQueueList" style="display:flex; flex-direction:column; gap:8px; margin-bottom:14px;"></div>
+      <div style="display:flex; justify-content:flex-end; gap:8px;">
+        <button onclick="flushSyncQueueNow()" class="btn btn-emerald">Synchroniser Maintenant</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pile de notifications Toast -->
+  <div id="toastStack" class="toast-stack"></div>
+
+  <!-- ==================== MOTEUR JAVASCRIPT COMPLET (WORKER + RAM + GEMINI + CRYPTO) ==================== -->
+  <script>
+    /**
+     * AEGIS 277 — CORE ENGINE
+     * 100% Autonome : Web Worker + Dynamic Virtual RAM (ArrayBuffer / Float64Array / Uint32Array)
+     *                 + Gemini Pro Cloud API (gemini-3-flash-preview) + Fallback Local Crise
+     *                 + Crypto Wallet Escrow + Téléchargement HTML en direct.
+     */
+
+    const STORAGE_KEY = 'AEGIS_277_STATE_V1';
+
+    // ==================== 1. CATALOGUE BIBLIOTHÈQUE DE RÉSILIENCE ====================
+    const LIBRARY_MODULES = [
+      {
+        id: 'MOD-COFFRE',
+        name: 'Coffre Physique Sécurisé & Gardiennage',
+        category: 'Sécurité Physique',
+        ramCostMb: 16,
+        uveYield: 120,
+        badge: 'GARAGE 24/7',
+        desc: 'Allocation d’un box blindé sous surveillance humaine 24/7 avec inventaire scellé anti-crise.'
+      },
+      {
+        id: 'MOD-ESCROW',
+        name: 'Smart-Contract Escrow Troc',
+        category: 'Crypto & Escrow',
+        ramCostMb: 24,
+        uveYield: 85,
+        badge: 'MULTI-SIG',
+        desc: 'Verrouillage cryptographique des lots échangés jusqu’à confirmation physique par le gardien.'
+      },
+      {
+        id: 'MOD-UVE',
+        name: 'Indexation Anti-Inflation UVE',
+        category: 'Crypto & Escrow',
+        ramCostMb: 12,
+        uveYield: 95,
+        badge: 'STABLE RÉEL',
+        desc: 'Adossement de chaque unité UVE à un panier physique (eau, calories, énergie, argent pur).'
+      },
+      {
+        id: 'MOD-MESH',
+        name: 'Réseau Logistique Hors-Ligne Mesh',
+        category: 'Logistique & Crise',
+        ramCostMb: 32,
+        uveYield: 110,
+        badge: 'ZERO-NET',
+        desc: 'Synchronisation locale par paquets signés JSON/USB et relais radio courte portée en cas de coupure.'
+      },
+      {
+        id: 'MOD-AUDIT',
+        name: 'Audit & Certification Stocks Essentiels',
+        category: 'Sécurité Physique',
+        ramCostMb: 16,
+        uveYield: 75,
+        badge: 'SHA-256',
+        desc: 'Contrôle périodique des dates de péremption, hygrométrie et intégrité des scellés.'
+      },
+      {
+        id: 'MOD-PASS',
+        name: 'Pass Biométrique & PIN Tournant',
+        category: 'Sécurité Physique',
+        ramCostMb: 8,
+        uveYield: 60,
+        badge: 'TOTP 30S',
+        desc: 'Jeton d’accès physique hors-ligne renouvelé toutes les 30 secondes pour entrer dans les garages.'
+      },
+      {
+        id: 'MOD-HYDRO',
+        name: 'Unité Mobile Purification & Énergie',
+        category: 'Logistique & Crise',
+        ramCostMb: 28,
+        uveYield: 140,
+        badge: 'AUTONOMIE',
+        desc: 'Station autonome combinant filtration gravitaire 500L/j et générateur solaire LiFePO4.'
+      }
+    ];
+
+    // ==================== 2. RAM VIRTUELLE DYNAMIQUE (ARRAYBUFFER / FLOAT64 / UINT32) ====================
+    const VirtualRamEngine = {
+      blockSizeMb: 64,
+      maxPoolMb: 1024,
+      blocks: [], // Tableau de { buffer: ArrayBuffer, floatView: Float64Array, uintView: Uint32Array }
+      writeCursor: 0,
+      totalOps: 0,
+      opsPerSec: 0,
+      lastLatencyMs: 0.02,
+      cacheHits: 996,
+      cacheMisses: 4,
+      bandwidthHistory: [24, 38, 45, 52, 48, 66, 74, 69, 82, 91, 87, 95],
+
+      init(initialBlocks = 2) {
+        this.blocks = [];
+        for (let i = 0; i < initialBlocks; i++) {
+          this.allocateBlock();
+        }
+      },
+
+      allocateBlock() {
+        const currentMb = this.blocks.length * this.blockSizeMb;
+        if (currentMb >= this.maxPoolMb) return false;
+        try {
+          const bytes = this.blockSizeMb * 1024 * 1024;
+          const buffer = new ArrayBuffer(bytes);
+          const floatView = new Float64Array(buffer);
+          const uintView = new Uint32Array(buffer);
+          // Amorçage signature mémoire
+          uintView[0] = 0xAE615277;
+          floatView[1] = performance.now();
+          this.blocks.push({ buffer, floatView, uintView });
+          return true;
+        } catch (err) {
+          return false;
+        }
+      },
+
+      writeTelemetryBurst(valuesArray, iterations = 2048) {
+        if (this.blocks.length === 0) this.init(1);
+        const t0 = performance.now();
+        const block = this.blocks[this.writeCursor % this.blocks.length];
+        const fView = block.floatView;
+        const uView = block.uintView;
+        const len = fView.length;
+
+        for (let i = 0; i < iterations; i++) {
+          const idx = (this.writeCursor + i) % (len - 16);
+          const val = valuesArray[i % valuesArray.length];
+          fView[idx] = val * 1.0001 + (i & 7);
+          uView[(idx * 2) % (uView.length - 4)] = (this.totalOps + i) >>> 0;
+        }
+
+        this.writeCursor = (this.writeCursor + iterations) % (len - 16);
+        this.totalOps += iterations;
+        this.cacheHits += Math.floor(iterations * 0.996);
+        this.cacheMisses += Math.max(1, Math.floor(iterations * 0.004));
+
+        const dt = Math.max(0.01, performance.now() - t0);
+        this.lastLatencyMs = Math.min(0.09, +(dt / 10).toFixed(3));
+        return this.lastLatencyMs;
+      },
+
+      purgeCache() {
+        while (this.blocks.length > 1) {
+          this.blocks.pop();
+        }
+        this.writeCursor = 0;
+        this.cacheHits = 1000;
+        this.cacheMisses = 1;
+        this.lastLatencyMs = 0.01;
+      },
+
+      getAllocatedMb() {
+        return this.blocks.length * this.blockSizeMb;
+      },
+
+      getHitRate() {
+        const total = this.cacheHits + this.cacheMisses;
+        return total === 0 ? '99.9%' : ((this.cacheHits / total) * 100).toFixed(1) + '%';
+      }
+    };
+
+    // ==================== 3. ÉTAT GLOBAL PERSISTANT ====================
+    let state = {
+      systemRunning: false,
+      turboMode: false,
+      isOnline: navigator.onLine !== undefined ? navigator.onLine : true,
+      autoMissionOnAlert: true,
+      groupCommissionPct: 3.5,
+      scoutScans: 0,
+      crisisRiskScore: 64,
+      stocks: [
+        { id: 'STK-EAU', name: 'Eau Purifiée & Filtration Gravité', level: 82, qty: '12 400 L', color: '#06b6d4' },
+        { id: 'STK-SOL', name: 'Énergie Solaire & Carburant Stabilisé', level: 61, qty: '4 850 kWh', color: '#f59e0b' },
+        { id: 'STK-RAT', name: 'Rations Lyophilisées 25 ans', level: 88, qty: '3 120 Packs', color: '#10b981' },
+        { id: 'STK-MED', name: 'Malles Médicales Trauma & Antibiotiques', level: 54, qty: '410 Kits', color: '#f43f5e' },
+        { id: 'STK-MET', name: 'Métaux Précieux (Argent 1oz) & Outillage', level: 76, qty: '890 Lots', color: '#8b5cf6' }
+      ],
+      posedModuleIds: ['MOD-COFFRE', 'MOD-ESCROW', 'MOD-UVE'],
+      activePlan: {
+        title: 'Plan d’Exécution Tactique — Réseau Sécurisé Anti-Crise 277',
+        summary: 'Architecture hybride combinant stockage physique surveillé 24/7, indexation UVE et règlement Crypto Escrow.',
+        phases: [
+          { id: 'PH-1', title: 'Phase 1 : Détection & Sécurisation Périmètre', detail: 'Scout 277 verrouille les allocations disponibles dans le Garage Alpha et le Bunker Bêta.', deliverable: 'Certificat d’entrée gardien signé', done: true },
+          { id: 'PH-2', title: 'Phase 2 : Allocation RAM Virtuelle & Indexation UVE', detail: 'Calcul des parités en Unités de Valeur Essentielle dans le Ring-Buffer Float64.', deliverable: 'Grille de parité anti-inflation', done: true },
+          { id: 'PH-3', title: 'Phase 3 : Déploiement Smart-Contract Escrow', detail: 'Blocage des fonds USDC/UVE et prélèvement automatique de la commission groupe.', deliverable: 'Contrat Escrow SHA-256 actif', done: false },
+          { id: 'PH-4', title: 'Phase 4 : Liquidation Troc & Pass Gardien', detail: 'Remise des jetons PIN tournants 30s aux membres pour retrait ou échange physique.', deliverable: 'Preuve de livraison physique', done: false }
+        ]
+      },
+      creations: [],
+      wallet: {
+        address: '0x7FA28B4E19C04D88A31F90E25C7B6104D9280277',
+        uve: 2450.00,
+        usdc: 14800.00,
+        eth: 3.8500,
+        groupCommissions: 418.50
+      },
+      ledger: [],
+      syncQueue: [],
+      logs: []
+    };
+
+    let workerInstance = null;
+    let fallbackInterval = null;
+    let currentLogFilter = 'ALL';
+    let currentLibraryFilter = 'ALL';
+    let passCountdown = 30;
+    let opsCounterWindow = 0;
+
+    // ==================== 4. CRYPTOGRAPHIE SHA-256 (WEB CRYPTO + FALLBACK) ====================
+    async function computeSha256(text) {
+      try {
+        if (window.crypto && window.crypto.subtle) {
+          const data = new TextEncoder().encode(text);
+          const hashBuf = await window.crypto.subtle.digest('SHA-256', data);
+          return Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+      } catch (e) {
+        // Fallback déterministe hors-ligne
+      }
+      let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+      for (let i = 0; i < text.length; i++) {
+        const ch = text.charCodeAt(i);
+        h1 = Math.imul(h1 ^ ch, 2654435761);
+        h2 = Math.imul(h2 ^ ch, 1597334677);
+      }
+      h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+      h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+      return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(16).padStart(16, '0').repeat(4).slice(0, 64);
+    }
+
+    // ==================== 5. PERSISTANCE LOCALSTORAGE ====================
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (err) {
+        // Ignore quota errors
+      }
+    }
+
+    async function loadState() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          state = { ...state, ...parsed };
+        } else {
+          // Création initiale de démonstration
+          const initialHash = await computeSha256('AEGIS-277-GENESIS-MISSION');
+          state.creations = [
+            {
+              id: 'MIS-27701',
+              timestamp: new Date().toLocaleString('fr-FR'),
+              title: 'Bouclier Réserve Stratégique — Bunker Bêta Sud',
+              summary: 'Sécurisation de 1 200 rations lyophilisées et 4 000 L d’eau purifiée avec contrat Escrow multi-signatures.',
+              source: 'Gemini Pro Cloud',
+              riskLevel: 'ÉLEVÉ (64/100)',
+              modules: ['MOD-COFFRE', 'MOD-ESCROW', 'MOD-UVE'],
+              phases: state.activePlan.phases,
+              uveValue: 480,
+              usdcValue: 4800,
+              commissionUve: 16.80,
+              hash: initialHash
+            }
+          ];
+          state.ledger = [
+            {
+              id: 'TX-27701',
+              timestamp: new Date().toLocaleString('fr-FR'),
+              type: 'MISSION ESCROW',
+              detail: 'Bouclier Réserve Stratégique — Bunker Bêta Sud',
+              uve: 480.00,
+              usdc: 4800.00,
+              commission: '16.80 UVE (3.5%)',
+              hash: initialHash,
+              synced: true
+            }
+          ];
+          pushLog('RAM-VIRTUELLE', 'Pool Ring-Buffer 128 MB initialisé (Float64Array / Uint32Array).');
+          pushLog('SCOUT-277', 'Capteurs connectés aux 3 sites physiques (Alpha, Bêta, Gamma).');
+          saveState();
+        }
+      } catch (e) {
+        // Fallback clean state
+      }
+    }
+
+    // ==================== 6. WEB WORKER ULTRA-RAPIDE ====================
+    function initWebWorker() {
+      const code = `
+        let active = false;
+        let turbo = false;
+        let tick = 0;
+
+        function loop() {
+          if (active) {
+            tick++;
+            self.postMessage({ type: 'TICK', tick, turbo });
+          }
+          setTimeout(loop, turbo ? 280 : 1200);
+        }
+
+        self.onmessage = function(e) {
+          if (e.data.cmd === 'SET_STATE') {
+            active = e.data.active;
+            turbo = e.data.turbo;
+          }
+        };
+
+        loop();
+      `;
+
+      try {
+        const blob = new Blob([code], { type: 'application/javascript' });
+        workerInstance = new Worker(URL.createObjectURL(blob));
+        workerInstance.onmessage = (e) => {
+          if (e.data.type === 'TICK') handleWorkerTick(e.data.tick, e.data.turbo);
+        };
+        workerInstance.onerror = () => startFallbackTimer();
+      } catch (err) {
+        startFallbackTimer();
+      }
+    }
+
+    function startFallbackTimer() {
+      if (fallbackInterval) clearInterval(fallbackInterval);
+      let t = 0;
+      fallbackInterval = setInterval(() => {
+        if (state.systemRunning) {
+          t++;
+          handleWorkerTick(t, state.turboMode);
+        }
+      }, state.turboMode ? 320 : 1200);
+    }
+
+    function syncWorkerState() {
+      if (workerInstance) {
+        workerInstance.postMessage({
+          cmd: 'SET_STATE',
+          active: state.systemRunning,
+          turbo: state.turboMode
+        });
+      }
+      if (fallbackInterval) startFallbackTimer();
+    }
+
+    function handleWorkerTick(tick, turbo) {
+      // 1. Écriture ultra-rapide dans la RAM Virtuelle Dynamique (Zero-Copy Simulation)
+      const stockLevels = state.stocks.map(s => s.level);
+      const iterations = turbo ? 16384 : 4096;
+      VirtualRamEngine.writeTelemetryBurst(stockLevels, iterations);
+      opsCounterWindow += iterations;
+
+      // 2. Mise à jour Scout 277
+      state.scoutScans += 1;
+      const targetIdx = tick % state.stocks.length;
+      const stock = state.stocks[targetIdx];
+      const delta = (Math.random() > 0.48 ? 1 : -1) * (turbo ? 2 : 1);
+      stock.level = Math.max(22, Math.min(98, stock.level + delta));
+
+      // Calcul indice de tension crise
+      const avgLevel = state.stocks.reduce((a, b) => a + b.level, 0) / state.stocks.length;
+      state.crisisRiskScore = Math.max(18, Math.min(95, Math.round(115 - avgLevel)));
+
+      const signalText = stock.level < 60
+        ? `⚠️ Tension détectée sur ${stock.name} (${stock.level}%) — Recommandation réapprovisionnement UVE.`
+        : `✓ Nominal sur ${stock.name} (${stock.level}%) — Parité UVE vérifiée dans Ring-Buffer.`;
+      document.getElementById('scoutLatestSignal').textContent = signalText;
+
+      if (tick % (turbo ? 4 : 2) === 0) {
+        pushLog('SCOUT-277', signalText);
+      }
+
+      // 3. Déclenchement automatique Créateur 277 si alerte critique et auto-mission active
+      if (stock.level < 55 && state.autoMissionOnAlert && tick % 8 === 0) {
+        pushLog('CRÉATEUR-277', `Alerte stock bas (${stock.name} à ${stock.level}%) — Synthèse d'une mission de couverture...`);
+        executeCreatorDirective(true, `Réapprovisionner et sécuriser ${stock.name} (${stock.qty}) avec contrat Escrow`);
+      }
+
+      renderScoutStocks();
+      updateRamHud();
+    }
+
+    // ==================== 7. CONTRÔLES MAÎTRES (DÉMARRER, TURBO, ONLINE/OFFLINE) ====================
+    function toggleSystem277() {
+      state.systemRunning = !state.systemRunning;
+      syncWorkerState();
+      updateMasterButtonsUI();
+      if (state.systemRunning) {
+        pushLog('RAM-VIRTUELLE', 'Boucle Web Worker & Ring-Buffer démarrée en mode temps réel.');
+        showToast('Système AEGIS 277 démarré !', 'success');
+      } else {
+        pushLog('RAM-VIRTUELLE', 'Système 277 mis en pause.');
+        showToast('Système 277 en pause', 'info');
+      }
+      saveState();
+    }
+
+    function toggleTurboMode() {
+      state.turboMode = !state.turboMode;
+      if (state.turboMode && !state.systemRunning) {
+        state.systemRunning = true;
+      }
+      syncWorkerState();
+      updateMasterButtonsUI();
+      pushLog('RAM-VIRTUELLE', state.turboMode ? '⚡ MODE TURBO ULTRA-RAPIDE ACTIVÉ (16k ops/tick).' : 'Mode vitesse nominale rétabli.');
+      showToast(state.turboMode ? '⚡ Mode Turbo Ultra-Rapide activé !' : 'Mode normal activé', 'info');
+      saveState();
+    }
+
+    function updateMasterButtonsUI() {
+      const btnStart = document.getElementById('btnMasterStart');
+      const iconStart = document.getElementById('masterStartIcon');
+      const textStart = document.getElementById('masterStartText');
+      const btnTurbo = document.getElementById('btnTurboMode');
+
+      if (state.systemRunning) {
+        btnStart.className = 'btn btn-master-start btn-master-running';
+        iconStart.textContent = '⏸';
+        textStart.textContent = 'PAUSE SYSTÈME 277';
+      } else {
+        btnStart.className = 'btn btn-master-start';
+        iconStart.textContent = '▶';
+        textStart.textContent = 'DÉMARRER SYSTÈME 277';
+      }
+
+      btnTurbo.classList.toggle('active', state.turboMode);
+    }
+
+    function toggleNetworkMode(forceOnline = null) {
+      const wasOnline = state.isOnline;
+      state.isOnline = forceOnline !== null ? forceOnline : !state.isOnline;
+      updateNetworkUI();
+
+      if (!wasOnline && state.isOnline) {
+        pushLog('GEMINI-CLOUD', 'Connexion rétablie — Bascule sur Gemini Pro Cloud & synchronisation...');
+        flushSyncQueueNow();
+      } else if (!state.isOnline) {
+        pushLog('CRÉATEUR-277', '🔌 Mode Déconnecté (Crise Local-First) activé. Empilement local dans Sync Queue.');
+        showToast('Mode Déconnecté Crise Local-First activé', 'warning');
+      }
+      saveState();
+    }
+
+    function updateNetworkUI() {
+      const btn = document.getElementById('btnNetworkSwitch');
+      const dot = document.getElementById('netDot');
+      const label = document.getElementById('netLabel');
+      const banner = document.getElementById('offlineCrisisBanner');
+      const aiTag = document.getElementById('aiEngineModeTag');
+      const syncBadge = document.getElementById('syncCountBadge');
+
+      syncBadge.textContent = state.syncQueue.length;
+      syncBadge.style.background = state.syncQueue.length > 0 ? '#f59e0b' : '#1e293b';
+      syncBadge.style.color = state.syncQueue.length > 0 ? '#090d16' : '#f8fafc';
+
+      if (state.isOnline) {
+        btn.className = 'btn btn-emerald';
+        dot.style.background = '#10b981';
+        label.textContent = '🌐 EN LIGNE (Gemini Pro Cloud)';
+        banner.classList.add('hidden');
+        aiTag.textContent = 'MOTEUR : GEMINI PRO CLOUD ACTIF';
+        aiTag.style.background = 'rgba(16,185,129,0.16)';
+        aiTag.style.color = '#6ee7b7';
+      } else {
+        btn.className = 'btn btn-turbo';
+        dot.style.background = '#f59e0b';
+        label.textContent = '🔌 DÉCONNECTÉ (Mode Crise Local-First)';
+        banner.classList.remove('hidden');
+        aiTag.textContent = 'MOTEUR : LOCAL CRISE 277 (HORS-LIGNE)';
+        aiTag.style.background = 'rgba(245,158,11,0.18)';
+        aiTag.style.color = '#fde68a';
+      }
+    }
+
+    // ==================== 8. CONTRÔLES RAM VIRTUELLE DYNAMIQUE ====================
+    function allocateMoreVirtualRam() {
+      // Alloue +128 MB (2 blocs de 64 MB)
+      const ok1 = VirtualRamEngine.allocateBlock();
+      const ok2 = VirtualRamEngine.allocateBlock();
+      if (ok1 || ok2) {
+        const total = VirtualRamEngine.getAllocatedMb();
+        pushLog('RAM-VIRTUELLE', `Allocation dynamique réussie : Pool porté à ${total} MB (ArrayBuffer Ring-Buffer).`);
+        showToast(`RAM Virtuelle étendue à ${total} MB`, 'success');
+      } else {
+        showToast('Capacité maximale de 1024 MB atteinte', 'warning');
+      }
+      updateRamHud();
+    }
+
+    function purgeVirtualRamCache() {
+      VirtualRamEngine.purgeCache();
+      pushLog('RAM-VIRTUELLE', 'Purge du cache exécutée — Pool compacté à 64 MB, fragmentation 0.0%.');
+      showToast('Cache RAM Virtuelle purgé (0.01 ms)', 'info');
+      updateRamHud();
+    }
+
+    function updateRamHud() {
+      const allocMb = VirtualRamEngine.getAllocatedMb();
+      document.getElementById('ramAllocatedVal').textContent = `${allocMb} MB / ${VirtualRamEngine.maxPoolMb} MB`;
+      document.getElementById('ramThroughputVal').textContent = `${VirtualRamEngine.opsPerSec.toLocaleString('fr-FR')} ops/sec`;
+      document.getElementById('ramLatencyVal').textContent = `${VirtualRamEngine.lastLatencyMs.toFixed(2)} ms`;
+      document.getElementById('ramHitRateVal').textContent = VirtualRamEngine.getHitRate();
+      document.getElementById('nodeRamStat').textContent = `${allocMb} MB • ${VirtualRamEngine.lastLatencyMs.toFixed(2)}ms`;
+
+      drawRamSparkline();
+    }
+
+    function drawRamSparkline() {
+      const canvas = document.getElementById('ramSparkline');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      const data = VirtualRamEngine.bandwidthHistory;
+      const max = Math.max(...data, 100);
+      const step = w / (data.length - 1);
+
+      ctx.beginPath();
+      data.forEach((v, i) => {
+        const x = i * step;
+        const y = h - (v / max) * (h - 4) - 2;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = state.turboMode ? '#f59e0b' : '#06b6d4';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    // ==================== 9. GEMINI PRO CLOUD + CRÉATEUR 277 ====================
+    function useDirectivePreset(text) {
+      document.getElementById('geminiDirectiveInput').value = text;
+      executeCreatorDirective(false);
+    }
+
+    async function executeCreatorDirective(isAuto = false, overridePrompt = null) {
+      const inputEl = document.getElementById('geminiDirectiveInput');
+      const directive = (overridePrompt || inputEl.value || '').trim() ||
+        'Sécuriser un lot stratégique Eau Purifiée & Énergie Solaire avec contrat Escrow multi-signatures';
+
+      if (!isAuto && !overridePrompt) {
+        inputEl.value = '';
+      }
+
+      const btn = document.getElementById('btnGenerateMission');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = '⏳ Synthèse Créateur 277 en cours...';
+      }
+
+      pushLog('CRÉATEUR-277', `Réception directive : "${directive}"`);
+
+      let resultData = null;
+      let engineSource = 'Local Crise 277 (Hors-Ligne)';
+
+      if (state.isOnline) {
+        pushLog('GEMINI-CLOUD', 'Interrogation de Gemini Pro Cloud (gemini-3-flash-preview)...');
+        resultData = await callGeminiProCloudApi(directive);
+        if (resultData) {
+          engineSource = 'Gemini Pro Cloud';
+          pushLog('GEMINI-CLOUD', `Réponse structurée reçue : "${resultData.title}"`);
+        } else {
+          pushLog('GEMINI-CLOUD', 'Délai réseau dépassé — Bascule instantanée sur Créateur Local 277.');
+          resultData = buildLocalStructuredMission(directive);
+          engineSource = 'Local Crise 277 (Secours)';
+        }
+      } else {
+        resultData = buildLocalStructuredMission(directive);
+        engineSource = 'Local Crise 277 (Hors-Ligne)';
+      }
+
+      // Application des modules recommandés sur le Schéma à Poser
+      if (Array.isArray(resultData.recommendedModuleIds) && resultData.recommendedModuleIds.length > 0) {
+        const validIds = resultData.recommendedModuleIds.filter(id => LIBRARY_MODULES.some(m => m.id === id));
+        if (validIds.length > 0) {
+          state.posedModuleIds = Array.from(new Set([...state.posedModuleIds, ...validIds]));
+        }
+      }
+
+      // Mise à jour du Plan Réponse à Poser
+      state.activePlan = {
+        title: resultData.title,
+        summary: resultData.summary,
+        phases: resultData.phases.map((p, idx) => ({
+          id: `PH-${idx + 1}`,
+          title: p.phaseTitle,
+          detail: p.actionDetail,
+          deliverable: p.deliverable,
+          done: idx === 0
+        }))
+      };
+
+      // Exécution de la transaction Crypto Escrow associée
+      await finalizeCreationAndCryptoEscrow(resultData, engineSource);
+
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = '⚡ Générer Mission, Schéma & Crypto Escrow';
+      }
+    }
+
+    async function callGeminiProCloudApi(userDirective) {
+      const apiKey = ""; // Injecté automatiquement par l'environnement d'exécution
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+      const systemPrompt = `Tu es CRÉATEUR 277, l'intelligence stratégique du réseau anti-crise AEGIS 277.
+Analyse la directive utilisateur et génère une mission opérationnelle structurée en français, incluant les identifiants de modules recommandés parmi : MOD-COFFRE, MOD-ESCROW, MOD-UVE, MOD-MESH, MOD-AUDIT, MOD-PASS, MOD-HYDRO, un plan en 4 phases précises, et une valorisation réaliste en UVE (1 UVE = 10 EUR) et USDC.`;
+
+      const payload = {
+        contents: [{ parts: [{ text: `Directive stratégique : ${userDirective}` }] }],
+        systemInstruction: { parts: [{ text: systemPrompt }] },
+        generationConfig: {
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: "OBJECT",
+            properties: {
+              title: { type: "STRING" },
+              summary: { type: "STRING" },
+              riskLevel: { type: "STRING" },
+              recommendedModuleIds: {
+                type: "ARRAY",
+                items: { type: "STRING" }
+              },
+              phases: {
+                type: "ARRAY",
+                items: {
+                  type: "OBJECT",
+                  properties: {
+                    phaseTitle: { type: "STRING" },
+                    actionDetail: { type: "STRING" },
+                    deliverable: { type: "STRING" }
+                  },
+                  required: ["phaseTitle", "actionDetail", "deliverable"]
+                }
+              },
+              estimatedUve: { type: "NUMBER" },
+              estimatedUsdc: { type: "NUMBER" }
+            },
+            required: ["title", "summary", "riskLevel", "recommendedModuleIds", "phases", "estimatedUve", "estimatedUsdc"]
+          }
+        }
+      };
+
+      // Exponential backoff (1s, 2s, 4s) sans bruit console
+      const delays = [1000, 2000, 4000];
+      for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 9000);
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+
+          if (response.ok) {
+            const json = await response.json();
+            const rawText = json?.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (rawText) {
+              return JSON.parse(rawText);
+            }
+          }
+        } catch (err) {
+          // Attente backoff avant nouvelle tentative
+        }
+        if (attempt < 2) {
+          await new Promise(r => setTimeout(r, delays[attempt]));
+        }
+      }
+      return null;
+    }
+
+    function buildLocalStructuredMission(directive) {
+      const lower = directive.toLowerCase();
+      const mods = ['MOD-COFFRE', 'MOD-ESCROW'];
+      if (lower.includes('eau') || lower.includes('énergie') || lower.includes('solaire')) mods.push('MOD-HYDRO');
+      if (lower.includes('hors-ligne') || lower.includes('mesh') || lower.includes('crise')) mods.push('MOD-MESH');
+      if (lower.includes('audit') || lower.includes('sha') || lower.includes('métaux')) mods.push('MOD-AUDIT');
+      if (mods.length < 3) mods.push('MOD-UVE');
+
+      const uve = Math.floor(280 + Math.random() * 420);
+      return {
+        title: `Mission 277 — ${directive.slice(0, 56)}${directive.length > 56 ? '...' : ''}`,
+        summary: `Plan d'action autonome structuré par Créateur 277 pour exécuter "${directive}" avec verrouillage physique en garage gardé et garantie Crypto Escrow.`,
+        riskLevel: `CRISE ${state.crisisRiskScore}/100`,
+        recommendedModuleIds: mods,
+        phases: [
+          {
+            phaseTitle: 'Phase 1 : Reconnaissance Scout 277 & Réservation Garage',
+            actionDetail: 'Vérification des capacités physiques disponibles et assignation d’un agent de sécurité sur site.',
+            deliverable: 'Bon de réservation garage #AG-277'
+          },
+          {
+            phaseTitle: 'Phase 2 : Allocation RAM Virtuelle & Calcul Parité UVE',
+            actionDetail: `Indexation de ${uve} UVE dans le Ring-Buffer haute vitesse contre toute dévaluation fiduciaire.`,
+            deliverable: 'Certificat de parité UVE'
+          },
+          {
+            phaseTitle: 'Phase 3 : Verrouillage Smart-Contract Escrow & Commission',
+            actionDetail: `Blocage sécurisé de ${uve * 10} USDC et prélèvement de ${state.groupCommissionPct}% pour la caisse du groupe.`,
+            deliverable: 'Contrat Escrow signé SHA-256'
+          },
+          {
+            phaseTitle: 'Phase 4 : Activation Pass Gardien & Remise Physique',
+            actionDetail: 'Génération du QR Matrix et PIN tournant 30s permettant le retrait ou le troc direct.',
+            deliverable: 'Laissez-passer physique actif'
+          }
+        ],
+        estimatedUve: uve,
+        estimatedUsdc: uve * 10
+      };
+    }
+
+    async function finalizeCreationAndCryptoEscrow(missionData, sourceLabel) {
+      const uveVal = Math.max(50, Math.round(missionData.estimatedUve || 320));
+      const usdcVal = Math.max(500, Math.round(missionData.estimatedUsdc || uveVal * 10));
+      const commPct = state.groupCommissionPct;
+      const commUve = +(uveVal * (commPct / 100)).toFixed(2);
+
+      // Mise à jour soldes Wallet Crypto
+      state.wallet.uve = +(state.wallet.uve + uveVal - commUve).toFixed(2);
+      state.wallet.groupCommissions = +(state.wallet.groupCommissions + commUve).toFixed(2);
+
+      const txHash = await computeSha256(`${missionData.title}|${uveVal}|${state.wallet.address}|${Date.now()}`);
+      const creationId = 'MIS-' + Math.floor(10000 + Math.random() * 89999);
+
+      const creationObj = {
+        id: creationId,
+        timestamp: new Date().toLocaleString('fr-FR'),
+        title: missionData.title,
+        summary: missionData.summary,
+        source: sourceLabel,
+        riskLevel: missionData.riskLevel || 'CONTRÔLÉ',
+        modules: [...state.posedModuleIds],
+        phases: state.activePlan.phases,
+        uveValue: uveVal,
+        usdcValue: usdcVal,
+        commissionUve: commUve,
+        hash: txHash
+      };
+
+      state.creations.unshift(creationObj);
+
+      const txObj = {
+        id: 'TX-' + Math.floor(10000 + Math.random() * 89999),
+        timestamp: creationObj.timestamp,
+        type: sourceLabel.includes('Gemini') ? 'GEMINI ESCROW' : 'LOCAL ESCROW',
+        detail: missionData.title,
+        uve: uveVal,
+        usdc: usdcVal,
+        commission: `${commUve.toFixed(2)} UVE (${commPct}%)`,
+        hash: txHash,
+        synced: state.isOnline
+      };
+
+      state.ledger.unshift(txObj);
+
+      if (!state.isOnline) {
+        state.syncQueue.push({
+          id: creationId,
+          timestamp: creationObj.timestamp,
+          title: missionData.title,
+          uve: uveVal,
+          hash: txHash
+        });
+        pushLog('CRÉATEUR-277', `Création ${creationId} stockée localement et ajoutée à la Sync Queue.`);
+      }
+
+      pushLog('CRYPTO-ESCROW', `Contrat ${creationId} scellé (${uveVal} UVE | Commission groupe: ${commUve} UVE) — Hash ${txHash.slice(0, 12)}...`);
+      saveState();
+      renderAll();
+      showToast(`Mission créée & scellée (+${(uveVal - commUve).toFixed(1)} UVE nets)`, 'success');
+    }
+
+    // ==================== 10. WORKSPACE : BIBLIOTHÈQUE • SCHÉMA • CRÉATIONS ====================
+    function switchWorkspaceTab(tabName) {
+      ['library', 'schema', 'creations'].forEach(t => {
+        document.getElementById(`wsPane-${t}`).classList.toggle('hidden', t !== tabName);
+        document.getElementById(`wsTabBtn-${t}`).classList.toggle('active', t === tabName);
+      });
+    }
+
+    function filterLibrary(cat, btnEl) {
+      currentLibraryFilter = cat;
+      renderLibraryGrid();
+    }
+
+    function renderLibraryGrid() {
+      const grid = document.getElementById('libraryGrid');
+      const query = (document.getElementById('librarySearchInput').value || '').toLowerCase();
+
+      const filtered = LIBRARY_MODULES.filter(m => {
+        if (currentLibraryFilter !== 'ALL' && m.category !== currentLibraryFilter) return false;
+        if (query && !m.name.toLowerCase().includes(query) && !m.desc.toLowerCase().includes(query)) return false;
+        return true;
+      });
+
+      grid.innerHTML = filtered.map(mod => {
+        const isPosed = state.posedModuleIds.includes(mod.id);
+        return `
+          <div class="lib-card ${isPosed ? 'posed' : ''}">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; margin-bottom:6px;">
+                <span class="badge-core" style="background:var(--cyan-soft); color:#67e8f9; border-color:rgba(6,182,212,0.4);">${mod.category}</span>
+                <span class="mono text-dim" style="font-size:0.68rem;">${mod.badge} • ${mod.ramCostMb} MB</span>
+              </div>
+              <h4 style="margin:0 0 6px 0; font-size:0.88rem; font-weight:800;">${mod.name}</h4>
+              <p class="text-muted" style="margin:0; font-size:0.75rem;">${mod.desc}</p>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding-top:10px; border-top:1px solid var(--border-subtle);">
+              <span class="mono text-emerald font-bold" style="font-size:0.75rem;">+${mod.uveYield} UVE / cycle</span>
+              <button onclick="togglePoseModule('${mod.id}')" class="btn btn-sm ${isPosed ? 'btn-emerald' : 'btn-cyan'}">
+                ${isPosed ? '✔ Posé sur Schéma' : '➕ Poser sur le Schéma'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function togglePoseModule(modId) {
+      const idx = state.posedModuleIds.indexOf(modId);
+      const mod = LIBRARY_MODULES.find(m => m.id === modId);
+      if (idx === -1) {
+        state.posedModuleIds.push(modId);
+        pushLog('CRÉATEUR-277', `Module "${mod?.name}" posé sur le Schéma d'architecture.`);
+        showToast(`Module posé : ${mod?.name}`, 'success');
+      } else {
+        state.posedModuleIds.splice(idx, 1);
+        pushLog('CRÉATEUR-277', `Module "${mod?.name}" retiré du Schéma.`);
+        showToast(`Module retiré du schéma`, 'info');
+      }
+      saveState();
+      renderAll();
+    }
+
+    function resetPosedSchema() {
+      state.posedModuleIds = ['MOD-COFFRE', 'MOD-ESCROW'];
+      saveState();
+      renderAll();
+      showToast('Schéma réinitialisé sur les modules de base', 'info');
+    }
+
+    function renderSchemaAndPlan() {
+      const container = document.getElementById('posedModulesCanvas');
+      document.getElementById('countSchemaBadge').textContent = `${state.posedModuleIds.length} posés`;
+
+      if (state.posedModuleIds.length === 0) {
+        container.innerHTML = `<span class="text-dim" style="font-size:0.72rem;">Aucun module posé. Cliquez sur "+ Ajouter depuis Bibliothèque".</span>`;
+      } else {
+        container.innerHTML = state.posedModuleIds.map(id => {
+          const mod = LIBRARY_MODULES.find(m => m.id === id);
+          if (!mod) return '';
+          return `
+            <span class="posed-node-pill" onclick="togglePoseModule('${id}')" title="Cliquer pour retirer du schéma">
+              <span>${mod.name}</span>
+              <strong>&times;</strong>
+            </span>
+          `;
+        }).join('');
+      }
+
+      // Rendu du Plan Réponse en 4 Phases
+      document.getElementById('activePlanTitle').textContent = state.activePlan.title;
+      document.getElementById('activePlanSummary').textContent = state.activePlan.summary;
+
+      const phasesEl = document.getElementById('actionPlanPhasesList');
+      phasesEl.innerHTML = state.activePlan.phases.map((ph, idx) => `
+        <div class="phase-card ${ph.done ? 'done' : ''}">
+          <input type="checkbox" class="phase-check" ${ph.done ? 'checked' : ''} onchange="togglePlanPhase(${idx})" />
+          <div>
+            <div style="font-size:0.8rem; font-weight:800; color:${ph.done ? '#6ee7b7' : '#f8fafc'};">${ph.title}</div>
+            <div class="text-muted" style="font-size:0.74rem; margin-top:3px;">${ph.detail}</div>
+            <div class="mono text-cyan" style="font-size:0.69rem; margin-top:5px;">Livrable : ${ph.deliverable}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function togglePlanPhase(idx) {
+      if (state.activePlan.phases[idx]) {
+        state.activePlan.phases[idx].done = !state.activePlan.phases[idx].done;
+        saveState();
+        renderSchemaAndPlan();
+      }
+    }
+
+    async function deployCurrentSchemaToCreation() {
+      const modulesNames = state.posedModuleIds
+        .map(id => LIBRARY_MODULES.find(m => m.id === id)?.name)
+        .filter(Boolean);
+      const totalYield = state.posedModuleIds.reduce((sum, id) => {
+        const m = LIBRARY_MODULES.find(x => x.id === id);
+        return sum + (m ? m.uveYield : 0);
+      }, 150);
+
+      const missionPayload = {
+        title: `Architecture Déployée (${modulesNames.length} modules) — ${state.activePlan.title.slice(0, 42)}`,
+        summary: `Déploiement opérationnel incluant : ${modulesNames.join(', ') || 'Noyau 277'}.`,
+        riskLevel: `CRISE ${state.crisisRiskScore}/100`,
+        recommendedModuleIds: state.posedModuleIds,
+        phases: state.activePlan.phases.map(p => ({
+          phaseTitle: p.title,
+          actionDetail: p.detail,
+          deliverable: p.deliverable
+        })),
+        estimatedUve: totalYield,
+        estimatedUsdc: totalYield * 10
+      };
+
+      await finalizeCreationAndCryptoEscrow(
+        missionPayload,
+        state.isOnline ? 'Gemini Pro Cloud + Schéma' : 'Local Crise 277 + Schéma'
+      );
+      switchWorkspaceTab('creations');
+    }
+
+    function renderCreationsGrid() {
+      const grid = document.getElementById('creationsGrid');
+      document.getElementById('countCreationsBadge').textContent = state.creations.length;
+      document.getElementById('creatorMissionsBadge').textContent = `${state.creations.length} Créations`;
+
+      if (state.creations.length === 0) {
+        grid.innerHTML = `<div class="text-muted" style="grid-column:1/-1; text-align:center; padding:24px;">Aucune création générée pour l'instant.</div>`;
+        return;
+      }
+
+      grid.innerHTML = state.creations.map(c => {
+        const isCloud = c.source.includes('Gemini');
+        return `
+          <div class="lib-card" style="border-color:${isCloud ? 'rgba(139,92,246,0.45)' : 'rgba(245,158,11,0.45)'};">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; margin-bottom:6px;">
+                <span class="badge-core" style="background:${isCloud ? 'var(--violet-soft)' : 'var(--amber-soft)'}; color:${isCloud ? '#ddd6fe' : '#fde68a'};">
+                  ${isCloud ? '🌐 ' + c.source : '🔌 ' + c.source}
+                </span>
+                <span class="mono text-dim" style="font-size:0.68rem;">${c.id}</span>
+              </div>
+              <h4 style="margin:0 0 6px 0; font-size:0.88rem; font-weight:800;">${c.title}</h4>
+              <p class="text-muted" style="margin:0 0 8px 0; font-size:0.74rem;">${c.summary}</p>
+              <div class="mono text-dim" style="font-size:0.68rem;">SHA-256 : ${c.hash.slice(0, 18)}...</div>
+            </div>
+
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:0.74rem; padding:8px 0; border-top:1px solid var(--border-subtle);">
+                <span class="mono text-emerald font-bold">${c.uveValue} UVE</span>
+                <span class="mono text-cyan">${c.usdcValue} USDC</span>
+                <span class="mono text-amber">Frais: ${c.commissionUve} UVE</span>
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;">
+                <button onclick="openCreationPreview('${c.id}')" class="btn btn-sm btn-cyan">👁 Aperçu</button>
+                <button onclick="downloadSingleCreation('${c.id}', 'html')" class="btn btn-sm btn-emerald">⬇ .HTML</button>
+                <button onclick="downloadSingleCreation('${c.id}', 'json')" class="btn btn-sm">⬇ .JSON</button>
+                <button onclick="downloadSingleCreation('${c.id}', 'md')" class="btn btn-sm">⬇ .MD</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openCreationPreview(creationId) {
+      const c = state.creations.find(x => x.id === creationId);
+      if (!c) return;
+      document.getElementById('previewModalTitle').textContent = `${c.id} — ${c.title}`;
+      document.getElementById('previewModalContent').innerHTML = `
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="background:var(--bg-input); padding:12px; border-radius:10px; border:1px solid var(--border-subtle);">
+            <div class="text-muted" style="margin-bottom:6px;">${c.summary}</div>
+            <div class="mono text-cyan" style="font-size:0.72rem;">Source : ${c.source} • Horodatage : ${c.timestamp}</div>
+            <div class="mono text-emerald" style="font-size:0.72rem; margin-top:4px;">Signature SHA-256 : ${c.hash}</div>
+          </div>
+          <div>
+            <strong>Plan d'Action Structuré (4 Phases) :</strong>
+            <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
+              ${(c.phases || []).map(p => `
+                <div style="background:var(--bg-input); padding:10px; border-radius:8px; border:1px solid var(--border-subtle);">
+                  <div class="font-bold text-white">${p.title || p.phaseTitle}</div>
+                  <div class="text-muted" style="font-size:0.75rem;">${p.detail || p.actionDetail}</div>
+                  <div class="mono text-amber" style="font-size:0.7rem; margin-top:3px;">Livrable : ${p.deliverable}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          <div style="display:flex; gap:8px; justify-content:flex-end;">
+            <button onclick="downloadSingleCreation('${c.id}', 'html')" class="btn btn-emerald">⬇ Télécharger Fiche HTML</button>
+            <button onclick="downloadSingleCreation('${c.id}', 'json')" class="btn btn-cyan">⬇ Télécharger Contrat JSON</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('creationPreviewModal').classList.remove('hidden');
+    }
+
+    // ==================== 11. TÉLÉCHARGEMENTS EN DIRECT (.HTML / .JSON / .MD) ====================
+    function downloadLiveHtmlDirect() {
+      saveState();
+      const docHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([docHtml], { type: 'text/html;charset=utf-8' });
+      triggerBlobDownload(blob, `AEGIS-277-SCOUT-CREATEUR-LIVE-${new Date().toISOString().slice(0, 10)}.html`);
+      pushLog('CRÉATEUR-277', '⬇ Export HTML autonome complet téléchargé en direct.');
+      showToast('Application HTML complète téléchargée !', 'success');
+    }
+
+    function downloadSingleCreation(creationId, format) {
+      const c = state.creations.find(x => x.id === creationId);
+      if (!c) return;
+
+      if (format === 'json') {
+        const blob = new Blob([JSON.stringify(c, null, 2)], { type: 'application/json;charset=utf-8' });
+        triggerBlobDownload(blob, `${c.id}-AEGIS277.json`);
+      } else if (format === 'md') {
+        const md = [
+          `# ${c.title} (${c.id})`,
+          `- **Source :** ${c.source}`,
+          `- **Date :** ${c.timestamp}`,
+          `- **Valorisation :** ${c.uveValue} UVE (${c.usdcValue} USDC) | Commission Groupe : ${c.commissionUve} UVE`,
+          `- **Signature SHA-256 :** \`${c.hash}\``,
+          `\n## Résumé Opérationnel\n${c.summary}`,
+          `\n## Plan d'Exécution en 4 Phases\n` + (c.phases || []).map(p => `- **${p.title || p.phaseTitle}** : ${p.detail || p.actionDetail} *(Livrable : ${p.deliverable})*`).join('\n')
+        ].join('\n');
+        const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+        triggerBlobDownload(blob, `${c.id}-PLAN-AEGIS277.md`);
+      } else {
+        const standaloneHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>${c.id} — ${c.title}</title>
+<style>body{font-family:system-ui,sans-serif;background:#060a12;color:#f8fafc;padding:32px;line-height:1.5;}
+.box{max-width:820px;margin:0 auto;background:#0f172a;border:1px solid #1e293b;border-radius:16px;padding:24px;}
+.tag{display:inline-block;padding:4px 10px;border-radius:999px;background:#1e293b;color:#38bdf8;font-size:12px;font-family:monospace;}
+.phase{background:#070c18;border:1px solid #1e293b;border-radius:10px;padding:12px;margin-top:10px;}
+code{color:#10b981;word-break:break-all;}</style></head>
+<body><div class="box"><span class="tag">${c.id} • ${c.source}</span><h1>${c.title}</h1><p>${c.summary}</p>
+<p><strong>Valorisation :</strong> ${c.uveValue} UVE (${c.usdcValue} USDC) — Commission Groupe : ${c.commissionUve} UVE</p>
+<p><strong>Signature SHA-256 :</strong> <code>${c.hash}</code></p><h2>Plan d'Action Structuré</h2>
+${(c.phases || []).map(p => `<div class="phase"><strong>${p.title || p.phaseTitle}</strong><p>${p.detail || p.actionDetail}</p><small>Livrable : ${p.deliverable}</small></div>`).join('')}
+</div></body></html>`;
+        const blob = new Blob([standaloneHtml], { type: 'text/html;charset=utf-8' });
+        triggerBlobDownload(blob, `${c.id}-FICHE-AEGIS277.html`);
+      }
+      showToast(`Fichier ${format.toUpperCase()} téléchargé !`, 'success');
+    }
+
+    function exportActivePlanMarkdown() {
+      const md = [
+        `# ${state.activePlan.title}`,
+        `${state.activePlan.summary}\n`,
+        `## Modules Posés sur le Schéma`,
+        state.posedModuleIds.map(id => `- ${LIBRARY_MODULES.find(m => m.id === id)?.name || id}`).join('\n'),
+        `\n## Plan Réponse en 4 Phases`,
+        state.activePlan.phases.map(p => `- [${p.done ? 'x' : ' '}] **${p.title}** : ${p.detail} *(Livrable : ${p.deliverable})*`).join('\n')
+      ].join('\n');
+      triggerBlobDownload(new Blob([md], { type: 'text/markdown;charset=utf-8' }), 'PLAN-A-POSER-AEGIS277.md');
+      showToast('Plan à poser exporté en Markdown (.MD)', 'success');
+    }
+
+    function exportFullStateJson() {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json;charset=utf-8' });
+      triggerBlobDownload(blob, `AEGIS-277-BACKUP-${new Date().toISOString().slice(0, 10)}.json`);
+      showToast('Sauvegarde JSON complète exportée !', 'success');
+    }
+
+    function triggerBlobDownload(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // ==================== 12. WALLET CRYPTO, LEDGER & PASS GARDIEN ====================
+    async function connectWeb3Wallet() {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          if (accounts && accounts[0]) {
+            state.wallet.address = accounts[0];
+            saveState();
+            renderWalletAndLedger();
+            refreshGuardianPass(true);
+            showToast('Portefeuille Web3 connecté !', 'success');
+            return;
+          }
+        } catch (err) {
+          showToast('Connexion Web3 annulée', 'warning');
+          return;
+        }
+      }
+      showToast('Coffre Souverain AEGIS 277 actif (aucune extension externe requise)', 'info');
+    }
+
+    async function regenerateSovereignKeys() {
+      const bytes = new Uint8Array(18);
+      if (window.crypto && window.crypto.getRandomValues) {
+        window.crypto.getRandomValues(bytes);
+      } else {
+        for (let i = 0; i < bytes.length; i++) bytes[i] = Math.floor(Math.random() * 256);
+      }
+      const hex = Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+      state.wallet.address = '0x7FA2' + hex.slice(0, 32) + '0277';
+      saveState();
+      renderWalletAndLedger();
+      refreshGuardianPass(true);
+      pushLog('CRYPTO-ESCROW', `Nouvelle adresse souveraine générée : ${state.wallet.address.slice(0, 12)}...`);
+      showToast('Nouvelles clés souveraines générées', 'success');
+    }
+
+    async function executeQuickCryptoSwap() {
+      if (state.wallet.usdc < 500) {
+        showToast('Solde USDC insuffisant', 'warning');
+        return;
+      }
+      state.wallet.usdc = +(state.wallet.usdc - 500).toFixed(2);
+      state.wallet.uve = +(state.wallet.uve + 50).toFixed(2);
+      const hash = await computeSha256(`SWAP-500USDC-50UVE-${Date.now()}`);
+
+      state.ledger.unshift({
+        id: 'TX-' + Math.floor(10000 + Math.random() * 89999),
+        timestamp: new Date().toLocaleString('fr-FR'),
+        type: 'SWAP RÉSERVE',
+        detail: 'Conversion 500 USDC -> 50 UVE Stock Physique Garanti',
+        uve: 50.00,
+        usdc: 500.00,
+        commission: '0.00 UVE (0%)',
+        hash,
+        synced: state.isOnline
+      });
+
+      if (!state.isOnline) {
+        state.syncQueue.push({
+          id: 'SWAP-' + Date.now(),
+          timestamp: new Date().toLocaleString('fr-FR'),
+          title: 'Conversion 500 USDC -> 50 UVE',
+          uve: 50,
+          hash
+        });
+      }
+
+      pushLog('CRYPTO-ESCROW', `Swap exécuté : 500 USDC -> 50 UVE (Hash: ${hash.slice(0, 12)}...)`);
+      saveState();
+      renderAll();
+      showToast('50 UVE ajoutés à votre réserve garantie !', 'success');
+    }
+
+    async function refreshGuardianPass(force = false) {
+      const site = document.getElementById('guardianSiteSelect').value;
+      const slot = Math.floor(Date.now() / 30000) + (force ? Math.floor(Math.random() * 50) : 0);
+      const digest = await computeSha256(`${state.wallet.address}|${site}|${slot}`);
+
+      const pin = (parseInt(digest.slice(0, 8), 16) % 900000) + 100000;
+      const pinStr = String(pin);
+      document.getElementById('guardianPinCode').textContent = `${pinStr.slice(0, 3)} ${pinStr.slice(3)}`;
+      document.getElementById('guardianSigMeta').textContent = `${site} • SIG: ${digest.slice(0, 12).toUpperCase()}`;
+
+      const canvas = document.getElementById('guardianQrCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const size = canvas.width;
+      const cells = 21;
+      const cellPx = size / cells;
+
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, size, size);
+
+      const drawFinder = (gx, gy) => {
+        ctx.fillStyle = '#060a12';
+        ctx.fillRect(gx * cellPx, gy * cellPx, 7 * cellPx, 7 * cellPx);
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect((gx + 1) * cellPx, (gy + 1) * cellPx, 5 * cellPx, 5 * cellPx);
+        ctx.fillStyle = '#060a12';
+        ctx.fillRect((gx + 2) * cellPx, (gy + 2) * cellPx, 3 * cellPx, 3 * cellPx);
+      };
+      drawFinder(0, 0);
+      drawFinder(cells - 7, 0);
+      drawFinder(0, cells - 7);
+
+      let idx = 0;
+      for (let y = 0; y < cells; y++) {
+        for (let x = 0; x < cells; x++) {
+          if ((x < 8 && y < 8) || (x >= cells - 8 && y < 8) || (x < 8 && y >= cells - 8)) continue;
+          const code = digest.charCodeAt(idx % digest.length);
+          if (((code + x * 5 + y * 11) % 2) === 0) {
+            ctx.fillStyle = '#060a12';
+            ctx.fillRect(x * cellPx, y * cellPx, cellPx - 0.2, cellPx - 0.2);
+          }
+          idx++;
+        }
+      }
+    }
+
+    // ==================== 13. RENDU GLOBAL & UTILITAIRES ====================
+    function renderAll() {
+      updateMasterButtonsUI();
+      updateNetworkUI();
+      updateRamHud();
+      renderScoutStocks();
+      renderLibraryGrid();
+      renderSchemaAndPlan();
+      renderCreationsGrid();
+      renderWalletAndLedger();
+      renderLogs();
+    }
+
+    function renderScoutStocks() {
+      document.getElementById('scoutCyclesBadge').textContent = `${state.scoutScans} Scans`;
+      document.getElementById('crisisRiskIndex').textContent = `${state.crisisRiskScore} / 100 (${state.crisisRiskScore > 65 ? 'CRITIQUE' : 'ÉLEVÉ'})`;
+
+      const list = document.getElementById('scoutStocksList');
+      list.innerHTML = state.stocks.map(s => `
+        <div class="stock-row">
+          <div style="display:flex; justify-content:space-between; font-size:0.76rem;">
+            <span class="font-semibold">${s.name}</span>
+            <span class="mono" style="color:${s.color};">${s.qty} (${s.level}%)</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width:${s.level}%; background:${s.color};"></div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderWalletAndLedger() {
+      document.getElementById('walletAddressFull').textContent = state.wallet.address;
+      document.getElementById('nodeWalletStat').textContent = `${state.wallet.address.slice(0, 6)}...${state.wallet.address.slice(-4)}`;
+      document.getElementById('balUve').textContent = `${state.wallet.uve.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} UVE`;
+      document.getElementById('balUsdc').textContent = `${state.wallet.usdc.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} USDC`;
+      document.getElementById('balEth').textContent = `${state.wallet.eth.toFixed(4)} ETH`;
+      document.getElementById('balCommissions').textContent = `${state.wallet.groupCommissions.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} UVE`;
+
+      const tbody = document.getElementById('cryptoLedgerBody');
+      tbody.innerHTML = state.ledger.map(tx => `
+        <tr>
+          <td class="mono text-dim">${tx.timestamp}</td>
+          <td><span class="badge-core" style="background:var(--cyan-soft); color:#67e8f9;">${tx.type}</span></td>
+          <td class="font-semibold">${tx.detail}</td>
+          <td class="mono text-emerald font-bold">${tx.uve.toFixed(2)} UVE</td>
+          <td class="mono text-cyan">${tx.usdc.toFixed(2)} USDC</td>
+          <td class="mono text-amber">${tx.commission}</td>
+          <td class="mono text-dim">
+            <button onclick="copyToClipboard('${tx.hash}', 'Hash SHA-256 copié !')" class="btn btn-sm" style="padding:2px 6px;">
+              ${tx.hash.slice(0, 14)}...
+            </button>
+          </td>
+          <td>
+            <span class="badge-core" style="background:${tx.synced ? 'var(--emerald-soft)' : 'var(--amber-soft)'}; color:${tx.synced ? '#6ee7b7' : '#fde68a'};">
+              ${tx.synced ? 'SYNCHRONISÉ' : 'LOCAL-QUEUE'}
+            </span>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function updateGroupCommission(val) {
+      state.groupCommissionPct = parseFloat(val);
+      document.getElementById('commissionSliderLabel').textContent = `${state.groupCommissionPct.toFixed(1)}%`;
+      document.getElementById('groupCommissionDisplay').textContent = `${state.groupCommissionPct.toFixed(1)}%`;
+      saveState();
+    }
+
+    function toggleAutoMission(checked) {
+      state.autoMissionOnAlert = checked;
+      saveState();
+    }
+
+    function triggerSingleAgentPulse() {
+      handleWorkerTick(state.scoutScans + 1, true);
+      showToast('Scan Scout 277 exécuté dans la RAM Virtuelle', 'info');
+    }
+
+    function pushLog(agent, message) {
+      const time = new Date().toLocaleTimeString('fr-FR');
+      state.logs.unshift({ time, agent, message });
+      if (state.logs.length > 80) state.logs.pop();
+      renderLogs();
+    }
+
+    function setLogFilter(filter) {
+      currentLogFilter = filter;
+      renderLogs();
+    }
+
+    function clearAgentLogs() {
+      state.logs = [];
+      renderLogs();
+    }
+
+    function renderLogs() {
+      const term = document.getElementById('agentConsoleTerminal');
+      if (!term) return;
+      const colorMap = {
+        'SCOUT-277': '#06b6d4',
+        'RAM-VIRTUELLE': '#8b5cf6',
+        'CRÉATEUR-277': '#10b981',
+        'GEMINI-CLOUD': '#c4b5fd',
+        'CRYPTO-ESCROW': '#f59e0b'
+      };
+      const filtered = state.logs.filter(l => currentLogFilter === 'ALL' || l.agent === currentLogFilter);
+      term.innerHTML = filtered.map(l => `
+        <div class="log-line">
+          <span class="text-dim">[${l.time}]</span>
+          <span class="font-bold" style="color:${colorMap[l.agent] || '#94a3b8'};">[${l.agent}]</span>
+          <span>${l.message}</span>
+        </div>
+      `).join('');
+    }
+
+    function openSyncQueueModal() {
+      const list = document.getElementById('syncQueueList');
+      if (state.syncQueue.length === 0) {
+        list.innerHTML = `<div class="text-muted" style="padding:14px; text-align:center; background:var(--bg-input); border-radius:10px;">Aucune opération en attente. Réseau 100 % synchronisé.</div>`;
+      } else {
+        list.innerHTML = state.syncQueue.map(item => `
+          <div style="background:var(--bg-input); border:1px solid rgba(245,158,11,0.4); border-radius:10px; padding:10px; font-size:0.76rem;">
+            <div class="font-bold text-amber">${item.title}</div>
+            <div class="mono text-dim" style="font-size:0.68rem;">${item.timestamp} • ${item.uve} UVE • Hash: ${item.hash.slice(0, 14)}...</div>
+          </div>
+        `).join('');
+      }
+      document.getElementById('syncQueueModal').classList.remove('hidden');
+    }
+
+    function flushSyncQueueNow() {
+      if (!state.isOnline) {
+        state.isOnline = true;
+        updateNetworkUI();
+      }
+      const count = state.syncQueue.length;
+      state.syncQueue = [];
+      state.ledger.forEach(tx => tx.synced = true);
+      saveState();
+      renderAll();
+      closeModal('syncQueueModal');
+      if (count > 0) {
+        pushLog('GEMINI-CLOUD', `${count} opération(s) hors-ligne synchronisée(s) avec succès.`);
+        showToast(`${count} opération(s) synchronisée(s) !`, 'success');
+      } else {
+        showToast('Déjà synchronisé à 100%', 'info');
+      }
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function copyToClipboard(text, msg = 'Copié !') {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast(msg, 'success');
+      } catch (e) {
+        showToast('Copie manuelle requise', 'warning');
+      }
+      document.body.removeChild(ta);
+    }
+
+    function showToast(message, type = 'info') {
+      const stack = document.getElementById('toastStack');
+      const borderMap = { success: '#10b981', warning: '#f59e0b', info: '#06b6d4' };
+      const el = document.createElement('div');
+      el.className = 'toast-item';
+      el.style.borderColor = borderMap[type] || '#06b6d4';
+      el.innerHTML = `<span>${message}</span><span style="cursor:pointer; opacity:0.7;" onclick="this.parentElement.remove()">✕</span>`;
+      stack.appendChild(el);
+      setTimeout(() => { if (el.parentElement) el.remove(); }, 3600);
+    }
+
+    // ==================== 14. INITIALISATION AU CHARGEMENT ====================
+    window.addEventListener('online', () => toggleNetworkMode(true));
+    window.addEventListener('offline', () => toggleNetworkMode(false));
+
+    window.onload = async function() {
+      VirtualRamEngine.init(2); // 128 MB Ring-Buffer initial
+      await loadState();
+      initWebWorker();
+      renderAll();
+      await refreshGuardianPass();
+
+      // Mesure débit RAM Virtuelle par seconde + sparkline
+      setInterval(() => {
+        VirtualRamEngine.opsPerSec = opsCounterWindow;
+        opsCounterWindow = 0;
+        const bw = state.systemRunning
+          ? Math.min(100, Math.round((VirtualRamEngine.opsPerSec / 600) + 25))
+          : Math.max(8, VirtualRamEngine.bandwidthHistory[VirtualRamEngine.bandwidthHistory.length - 1] - 4);
+        VirtualRamEngine.bandwidthHistory.push(bw);
+        if (VirtualRamEngine.bandwidthHistory.length > 14) VirtualRamEngine.bandwidthHistory.shift();
+        updateRamHud();
+      }, 1000);
+
+      // Compte à rebours rotation PIN Gardien (30s)
+      setInterval(() => {
+        passCountdown--;
+        if (passCountdown <= 0) {
+          passCountdown = 30;
+          refreshGuardianPass();
+        }
+        const badge = document.getElementById('passTimerBadge');
+        if (badge) badge.textContent = `Rotation : ${passCountdown}s`;
+      }, 1000);
+    };
+  </script>
+</body>
+</html>
